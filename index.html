@@ -913,7 +913,7 @@
   .word-pull{
     display: inline-block;
     overflow: hidden;
-    vertical-align: middle;
+    vertical-align: 0.12em;
     height: 1.05em;
     line-height: 1.05em;
   }
@@ -966,6 +966,7 @@
   .underline-animate{
     position: relative;
     display: inline-block;
+    overflow: hidden;
   }
   .underline-animate::after{
     content:"";
@@ -975,14 +976,14 @@
     width:100%;
     height:2px;
     background: rgba(17,17,17,0.35);
-    clip-path: inset(0 100% 0 0);
+    transform: translateX(-101%);
     animation: underlineLoop 3s cubic-bezier(0.87, 0, 0.13, 1) infinite;
   }
   @keyframes underlineLoop{
-    0%   { clip-path: inset(0 100% 0 0); }
-    40%  { clip-path: inset(0 0% 0 0); }
-    60%  { clip-path: inset(0 0% 0 0); }
-    100% { clip-path: inset(0 0% 0 100%); }
+    0%   { transform: translateX(-101%); }
+    40%  { transform: translateX(0%); }
+    60%  { transform: translateX(0%); }
+    100% { transform: translateX(101%); }
   }
   @media (prefers-reduced-motion: reduce){
     .underline-animate::after{ animation:none; transform: scaleX(1); }
