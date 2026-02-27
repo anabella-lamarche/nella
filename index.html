@@ -977,10 +977,14 @@
     background: rgba(17,17,17,0.35);
     transform: scaleX(0);
     transform-origin: left;
-    animation: underlineReveal 900ms ease forwards;
-    animation-delay: .15s;
+    animation: underlineLoop 3s cubic-bezier(0.87, 0, 0.13, 1) infinite;
   }
-  @keyframes underlineReveal{ to{ transform: scaleX(1); } }
+  @keyframes underlineLoop{
+    0%   { transform: scaleX(0); transform-origin: left; }
+    35%  { transform: scaleX(1); transform-origin: left; }
+    65%  { transform: scaleX(1); transform-origin: right; }
+    100% { transform: scaleX(0); transform-origin: right; }
+  }
   @media (prefers-reduced-motion: reduce){
     .underline-animate::after{ animation:none; transform: scaleX(1); }
   }
