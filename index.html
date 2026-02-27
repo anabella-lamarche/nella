@@ -977,17 +977,18 @@
     width:100%;
     height:2px;
     background: rgba(17,17,17,0.35);
-    transform: translateX(-101%);
-    animation: underlineLoop 3s cubic-bezier(0.87, 0, 0.13, 1) infinite;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: underlineLoop 3.5s ease-in-out infinite;
   }
   @keyframes underlineLoop{
-    0%   { transform: translateX(-101%); }
-    40%  { transform: translateX(0%); }
-    60%  { transform: translateX(0%); }
-    100% { transform: translateX(101%); }
+    0%   { transform: scaleX(0); }
+    35%  { transform: scaleX(1); }
+    65%  { transform: scaleX(1); }
+    100% { transform: scaleX(0); }
   }
   @media (prefers-reduced-motion: reduce){
-    .underline-animate::after{ animation:none; transform: translateX(0); }
+    .underline-animate::after{ animation:none; transform: scaleX(1); transform-origin: left; }
   }
 
 </style>
