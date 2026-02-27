@@ -913,9 +913,8 @@
   .word-pull{
     display: inline-block;
     overflow: hidden;
-    vertical-align: top;
-    height: 1.05em;
-    line-height: 1.05em;
+    vertical-align: baseline;
+    line-height: inherit;
   }
 
   .word-pull-inner{
@@ -974,16 +973,15 @@
     bottom:-6px;
     width:100%;
     height:2px;
-    background: rgba(17,17,17,0.35);
-    transform: scaleX(0);
-    transform-origin: left;
+    background: linear-gradient(to right, rgba(17,17,17,0.35), rgba(17,17,17,0.35)) no-repeat;
+    background-size: 0% 100%;
     animation: underlineLoop 3s cubic-bezier(0.87, 0, 0.13, 1) infinite;
   }
   @keyframes underlineLoop{
-    0%   { transform: scaleX(0); transform-origin: left; }
-    35%  { transform: scaleX(1); transform-origin: left; }
-    65%  { transform: scaleX(1); transform-origin: right; }
-    100% { transform: scaleX(0); transform-origin: right; }
+    0%   { background-size: 0% 100%; background-position: left; }
+    40%  { background-size: 100% 100%; background-position: left; }
+    60%  { background-size: 100% 100%; background-position: right; }
+    100% { background-size: 0% 100%; background-position: right; }
   }
   @media (prefers-reduced-motion: reduce){
     .underline-animate::after{ animation:none; transform: scaleX(1); }
