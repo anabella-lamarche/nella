@@ -977,15 +977,13 @@
     width:100%;
     height:2px;
     background: rgba(17,17,17,0.35);
-    transform: scaleX(0);
     transform-origin: left;
     animation: underlineLoop 3.5s ease-in-out infinite;
+    animation-fill-mode: both;
   }
   @keyframes underlineLoop{
-    0%   { transform: scaleX(0); }
-    35%  { transform: scaleX(1); }
-    65%  { transform: scaleX(1); }
-    100% { transform: scaleX(0); }
+    0%,100% { transform: scaleX(0); }
+    35%,65% { transform: scaleX(1); }
   }
   @media (prefers-reduced-motion: reduce){
     .underline-animate::after{ animation:none; transform: scaleX(1); transform-origin: left; }
