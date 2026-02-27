@@ -910,16 +910,18 @@
 
   /* ANIMATED WORDS */
   /* "pull." — original motion, with slightly more headroom so descenders don't clip */
-  .word-pull{
-    display: inline-block;
+  h2 em:has(.word-pull){
     overflow: hidden;
-    vertical-align: -0.15em;
-    height: 1.05em;
-    line-height: 1.05em;
+    display: inline-block;
+    vertical-align: bottom;
+  }
+
+  .word-pull{
+    display: inline;
   }
 
   .word-pull-inner{
-    display: block;
+    display: inline-block;
     animation: wordPull 4s cubic-bezier(0.87, 0, 0.13, 1) infinite;
     will-change: transform;
   }
@@ -985,7 +987,7 @@
     100% { transform: translateX(101%); }
   }
   @media (prefers-reduced-motion: reduce){
-    .underline-animate::after{ animation:none; transform: scaleX(1); }
+    .underline-animate::after{ animation:none; transform: translateX(0); }
   }
 
 </style>
